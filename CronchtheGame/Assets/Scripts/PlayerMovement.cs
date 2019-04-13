@@ -73,7 +73,8 @@ public class PlayerMovement : MonoBehaviour
         torso.setVelocity(rb2d.velocity);
 
         DeadPlayer legs = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
-
+        legs.fallGravity = controller.fallGravity;
+        legs.setVelocity(preJumpVelocity);
         transform.position =respawnPoint.transform.position;
         rb2d.velocity = Vector3.zero;
         StartCoroutine("respawn");
