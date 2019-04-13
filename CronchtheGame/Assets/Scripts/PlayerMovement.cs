@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     public CharacterController2D controller;
+    public  GameObject DeadPlayer;
+    public  Transform respawn; 
 
     void Start()
     {
@@ -34,5 +36,15 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
         jump = false;
+    }
+    
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag=="Death"){
+            Instantiate(DeadPlayer,transform.position,transform.rotation);
+            Instantiate(gameObject,respawn.position,transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }
