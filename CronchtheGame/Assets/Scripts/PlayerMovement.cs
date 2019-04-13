@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     
     private Rigidbody2D rb2d;
     private bool respawning;
-    
+    private Vector2 preJumpVelocity;
     void Awake()
     {
         controller = GetComponent<CharacterController2D>();
@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            preJumpVelocity = rb2d.velocity;
         }
         if(respawning!=true){
             if(controller.jumpsRemaining == 0)
@@ -67,9 +68,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void death()
     {
-        DeadPlayer body = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
-        body.fallGravity=controller.fallGravity;
-        body.setVelocity(rb2d.velocity);
+        DeadPlayer torso = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+        torso.fallGravity=controller.fallGravity;
+        torso.setVelocity(rb2d.velocity);
+
+        DeadPlayer legs = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+
         transform.position =respawnPoint.transform.position;
         rb2d.velocity = Vector3.zero;
         StartCoroutine("respawn");

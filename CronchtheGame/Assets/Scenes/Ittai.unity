@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 264316791}
   - component: {fileID: 264316790}
   - component: {fileID: 264316789}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: DEATH
   m_TagString: Death
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459716839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.39, y: 0.8, z: 0.0546875}
+  m_LocalPosition: {x: -7.59, y: 1.11, z: 0.0546875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -625,5 +625,25 @@ PrefabInstance:
       propertyPath: respawn
       value: 
       objectReference: {fileID: 1459716840}
+    - target: {fileID: 6414787283229015674, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 1459716840}
+    - target: {fileID: 6414787283229015674, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
+        type: 3}
+      propertyPath: respawnTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414787283229015675, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414787283229015675, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
+        type: 3}
+      propertyPath: m_GroundLayer.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f660ac11914bfa74f8d9bd4b1d0afbab, type: 3}
