@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 934380268}
   - component: {fileID: 934380267}
   - component: {fileID: 934380266}
+  - component: {fileID: 934380271}
   - component: {fileID: 934380270}
   m_Layer: 0
   m_Name: player
@@ -356,13 +357,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 934380265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2e47039e5b17341afdb4111aa3ad95, type: 3}
+  m_Script: {fileID: 11500000, guid: 825c21ccd5eb5124c81fd07a3bfd04b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
-  speed: 10
-  gravity: 9.81
-  GroundCheckdist: 1
+  m_JumpForce: 800
+  m_AirJumps: 0
+  m_FallGravity: 4
+  m_MovementSmoothing: 0.05
+  m_GroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  m_GroundCheck: {fileID: 0}
+  m_AirControl: 0
+  m_JumpForceOnEnemies: 20
+  m_FacingRight: 1
+  m_Damaged: 0
+  m_Immune: 0
+  m_RigidBody2D: {fileID: 0}
+--- !u!114 &934380271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934380265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea324027c48a87e40b77acd5f3f5ba8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 10
+  controller: {fileID: 934380270}
 --- !u!1 &1172029784
 GameObject:
   m_ObjectHideFlags: 0
