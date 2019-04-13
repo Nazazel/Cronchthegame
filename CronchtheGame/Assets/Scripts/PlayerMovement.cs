@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public  GameObject DeadPlayer;
     public  Transform respawn; 
-
-    void Start()
+    private Rigidbody2D rb2d;
+    void Awake()
     {
         controller = GetComponent<CharacterController2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -29,6 +30,14 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
         }
+        if(controller.jumpsRemaining == 0)
+            death();
+        
+        if(Input.GetButtonDown("HeartAttack"))
+        {
+            death();
+        }
+
     }
 
     // FixedUpdate is called multiple times per x amount of frames
@@ -41,10 +50,21 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag=="Death"){
-            Instantiate(DeadPlayer,transform.position,transform.rotation);
-            Instantiate(gameObject,respawn.position,transform.rotation);
-            Destroy(gameObject);
+        if(other.tag=="Death")
+        {
+            death();
         }
+    }
+
+    private void death()
+    {
+        Instantiate(DeadPlayer, transform.position, transform.rotation);
+        transform.position =respawn.transform.position;
+        rb2d.velocity = Vector3.zero;
+
+    }
+
+    private void explode()
+    {
     }
 }

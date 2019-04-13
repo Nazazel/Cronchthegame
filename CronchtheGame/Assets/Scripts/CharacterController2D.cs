@@ -31,7 +31,9 @@ public class CharacterController2D : MonoBehaviour {
     [HideInInspector] public Rigidbody2D m_RigidBody2D;
 
     public Transform GroundCheck { get => m_GroundCheck; set => m_GroundCheck = value; }
-
+    public float jumpsRemaining{get=>m_AirJumpsLeft;}
+    public Vector3 velocity{get=>m_Velocity;set=>m_Velocity=value;}
+    
     //private Animator animator; //If using animations
 
     void Awake()
@@ -123,5 +125,7 @@ public class CharacterController2D : MonoBehaviour {
     {
         return m_Grounded;
     }
+
+
 
 }
