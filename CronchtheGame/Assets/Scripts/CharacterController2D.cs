@@ -33,7 +33,9 @@ public class CharacterController2D : MonoBehaviour {
     public Transform GroundCheck { get => m_GroundCheck; set => m_GroundCheck = value; }
     public float jumpsRemaining{get=>m_AirJumpsLeft;}
     public Vector3 velocity{get=>m_Velocity;set=>m_Velocity=value;}
-    
+    public float fallGravity {get => m_FallGravity; set=> m_FallGravity = value;}
+
+
     //private Animator animator; //If using animations
 
     void Awake()
