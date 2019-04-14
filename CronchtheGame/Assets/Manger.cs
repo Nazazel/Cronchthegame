@@ -7,16 +7,19 @@ public class Manger : MonoBehaviour
     public GameObject MainMenu;
     public GameObject Credits;
 
-    // Start is called before the first frame update
-    public void start()
-    {   
+ 
+    
+
+    public void StartButton()
+    {
+
         SceneManager.LoadScene("level_1");
     }
-    public void quit()
+    public void QuitButton()
     {
         Application.Quit();
     }
-    public void credits()
+    public void CreditsButton()
     {
         MainMenu.SetActive(false);
         Credits.SetActive(true);

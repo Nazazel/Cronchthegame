@@ -9,7 +9,7 @@ public class OpenDoor : MonoBehaviour
     public AudioClip doorSound;
     private AudioSource audio;
     // Start is called before the first frame  
-    void Start()
+    void Awake()
     {
         audio = GetComponent<AudioSource>();
         allPressed = new bool[Buttons.Length];
