@@ -21,17 +21,25 @@ public class PlayerMovement : MonoBehaviour
     public float respawnTime;
     public float deathHeight;
     public LayerMask explosionLayers;
+    public AudioClip flatLine;
+    public AudioClip electricSound;
+    public AudioClip explosion;
+    public AudioClip fallSound;
+
+
 
     private Rigidbody2D rb2d;
     private bool respawning;
     private Vector2 preJumpVelocity;
     private float jumpDistance;
     private bool electric;
+    private AudioSource audio;
     void Awake()
     {
         controller = GetComponent<CharacterController2D>();
         rb2d = GetComponent<Rigidbody2D>();
-        respawning=false;
+        audio = GetComponent<AudioSource>();
+        respawning =false;
         jumpDistance = transform.position.y;
         StartCoroutine("respawn");
 
@@ -62,20 +70,26 @@ public class PlayerMovement : MonoBehaviour
             }
             else if(Input.GetButtonDown("HeartAttack"))
             {
-                if(electric == true)
+                if (electric == true)
                 {
+                    audio.PlayOneShot(electricSound);
                     electricDeath();
                 }
                 else
+                {
+                    audio.PlayOneShot(flatLine);
                     death();
+                }
             }
             else if(controller.IsGrounded()==true && Mathf.Abs(jumpDistance-transform.position.y)>deathHeight)
             {
+                audio.PlayOneShot(fallSound);
                 death();
             }
         }
         if (Input.GetButtonDown("restart"))
         {
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
 
         }
@@ -132,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void explode(Vector2 top, Vector2 bottom)
     {
+        audio.PlayOneShot(explosion);
         var hit = Physics2D.CircleCastAll(transform.position, 5, Vector2.zero, 0, explosionLayers);
         foreach (var wall in hit) // I WANNA PUKE;
         {
