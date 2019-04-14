@@ -27,15 +27,20 @@ public class DeadPlayer : MonoBehaviour
 
         else if (rb2d.velocity.y > 0 && !Input.GetButton("Jump"))//Tab Jump
             rb2d.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
-        if (hit.collider !=null)
-        {
-            rb2d.bodyType= RigidbodyType2D.Static;
-            gameObject.layer= 8;
-        }
     }
 
     public void setVelocity(Vector2 velocity)
     {
         rb2d.velocity = velocity;
+    }
+    
+    /// <summary>
+    /// Sent when an incoming collider makes contact with this object's
+    /// collider (2D physics only).
+    /// </summary>
+    /// <param name="other">The Collision2D data associated with this collision.</param>
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(other.gameObject.tag);
     }
 }
