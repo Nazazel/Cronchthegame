@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeadPlayer : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    private LayerMask mask;
+    public LayerMask mask;
     public float checkDis;
     private float m_FallGravity;
 
@@ -14,7 +14,6 @@ public class DeadPlayer : MonoBehaviour
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        mask = LayerMask.GetMask("Ground");
 
     }
 
@@ -22,7 +21,7 @@ public class DeadPlayer : MonoBehaviour
     void Update()
     {
 
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position, new Vector2(0f, -1f), checkDis, mask);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(.5f, .5f), 0, Vector2.down, .75f, mask);
         if (rb2d.velocity.y < 0) //we are falling, therefore increase gravity down
             rb2d.velocity += Vector2.up * Physics2D.gravity.y * (m_FallGravity - 1) * Time.deltaTime;
 

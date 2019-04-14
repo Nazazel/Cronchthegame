@@ -16,15 +16,20 @@ public class PlayerMovement : MonoBehaviour
     public  GameObject DeadPlayer;
     public  Transform respawnPoint; 
     public float respawnTime;
-    
+    public float deathHeight;
+
     private Rigidbody2D rb2d;
     private bool respawning;
     private Vector2 preJumpVelocity;
+    private float jumpDistance;
     void Awake()
     {
         controller = GetComponent<CharacterController2D>();
         rb2d = GetComponent<Rigidbody2D>();
         respawning=false;
+        jumpDistance = transform.position.y;
+        StartCoroutine("respawn");
+
     }
 
     // Update is called once per frame
@@ -34,20 +39,33 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            jumpDistance=transform.position.y;
             preJumpVelocity = rb2d.velocity;
         }
+       
+
         if(respawning!=true){
             if(controller.jumpsRemaining == 0)
             {
                 death();
+
             }
-            
-            if(Input.GetButtonDown("HeartAttack"))
+            else if(Input.GetButtonDown("HeartAttack"))
             {
                 death();
             }
-        }
+            else if(controller.IsGrounded()==true && Mathf.Abs(jumpDistance-transform.position.y)>deathHeight)
+            {
+                death();
 
+
+            }
+            
+        }
+       if (controller.IsGrounded())
+            {
+                jumpDistance = transform.position.y;
+            }
     }
 
     // FixedUpdate is called multiple times per x amount of frames
@@ -89,5 +107,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void explode()
     {
+        
+        death();
     }
 }

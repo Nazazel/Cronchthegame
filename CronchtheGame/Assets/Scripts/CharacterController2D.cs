@@ -34,7 +34,7 @@ public class CharacterController2D : MonoBehaviour {
     public float jumpsRemaining{get=>m_AirJumpsLeft;}
     public Vector3 velocity{get=>m_Velocity;set=>m_Velocity=value;}
     public float fallGravity {get => m_FallGravity; set=> m_FallGravity = value;}
-
+    public bool Grounded{get=>m_Grounded;set=> m_Grounded=value;}
 
     //private Animator animator; //If using animations
 
@@ -46,7 +46,8 @@ public class CharacterController2D : MonoBehaviour {
 
     void FixedUpdate()
     {
-        m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, m_GroundLayer);
+        // AH WHAT IS THE SIZE
+        m_Grounded = Physics2D.BoxCast(transform.position,new Vector2(.5f,.5f),0,Vector2.down, transform.position.y-m_GroundCheck.position.y,m_GroundLayer);
         if (m_Grounded)
             m_AirJumpsLeft = m_AirJumps;
     }

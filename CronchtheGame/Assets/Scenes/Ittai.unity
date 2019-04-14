@@ -318,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920151613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.8, y: -2.38, z: 0}
+  m_LocalPosition: {x: -5.8, y: 0.24, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -424,7 +424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172029784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.12, y: -2.4, z: 0}
+  m_LocalPosition: {x: -0.9, y: -5.2, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -454,7 +454,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459716839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.59, y: 1.11, z: 0.0546875}
+  m_LocalPosition: {x: -7.59, y: 5.73, z: 0.0546875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -554,6 +554,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 6414787283229015676, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 6414787283229015672, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -562,7 +567,7 @@ PrefabInstance:
     - target: {fileID: 6414787283229015672, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 5.97
       objectReference: {fileID: 0}
     - target: {fileID: 6414787283229015672, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
         type: 3}
@@ -635,6 +640,11 @@ PrefabInstance:
       propertyPath: respawnTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6414787283229015674, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
+        type: 3}
+      propertyPath: deathHeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6414787283229015675, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
         type: 3}
       propertyPath: m_Enabled
@@ -644,6 +654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_GroundLayer.m_Bits
       value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 6414787284295605940, guid: f660ac11914bfa74f8d9bd4b1d0afbab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f660ac11914bfa74f8d9bd4b1d0afbab, type: 3}
