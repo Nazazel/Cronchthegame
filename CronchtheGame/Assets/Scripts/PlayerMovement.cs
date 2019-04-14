@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip electricSound;
     public AudioClip explosion;
     public AudioClip fallSound;
+    public AudioClip failSound;
 
 
 
@@ -40,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpDistance;
     private bool electric;
     private AudioSource audio;
+    private float duration;
     void Awake()
     {
         controller = GetComponent<CharacterController2D>();
@@ -49,6 +51,12 @@ public class PlayerMovement : MonoBehaviour
         jumpDistance = transform.position.y;
         StartCoroutine("respawn");
 
+    }
+
+    IEnumerator WaitForSoundReset()
+    {
+        yield return new WaitForSeconds(duration);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
@@ -95,8 +103,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetButtonDown("restart"))
         {
+            audio.clip = failSound;
+            audio.Play();
+            duration = failSound.length;
+            StartCoroutine(WaitForSoundReset());
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+
 
         }
         if (controller.IsGrounded())
