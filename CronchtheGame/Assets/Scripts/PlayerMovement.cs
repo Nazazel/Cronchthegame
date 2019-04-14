@@ -17,6 +17,12 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public  GameObject DeadPlayer;
     public GameObject ElectricBody;
+
+    public GameObject torso;
+    public GameObject legs;
+
+
+
     public  Transform respawnPoint; 
     public float respawnTime;
     public float deathHeight;
@@ -154,13 +160,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
    
-        DeadPlayer torso = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
-        torso.fallGravity = controller.fallGravity;
-        torso.setVelocity(top);
+        DeadPlayer torsoHalf = Instantiate(torso, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+        torsoHalf.fallGravity = controller.fallGravity;
+        torsoHalf.setVelocity(top);
         
-        DeadPlayer legs = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
-        legs.fallGravity = controller.fallGravity;
-        legs.setVelocity(bottom);
+        DeadPlayer legsHalf = Instantiate(legs, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+        legsHalf.fallGravity = controller.fallGravity;
+        legsHalf.setVelocity(bottom);
         transform.position = respawnPoint.transform.position;
         rb2d.velocity = Vector3.zero;
         StartCoroutine("respawn");

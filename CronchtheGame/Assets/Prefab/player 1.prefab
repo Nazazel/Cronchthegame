@@ -180,12 +180,18 @@ MonoBehaviour:
     type: 3}
   ElectricBody: {fileID: 8261441023118652341, guid: 92b8b9a52e919fc46b418f83dc7ab2f1,
     type: 3}
+  torso: {fileID: 8042242673625624970, guid: 387f32b400ce72c4a8f5fdeb7e880485, type: 3}
+  legs: {fileID: 8042242673625624970, guid: fa00ec7b4d57f2041a0311d33f5757a5, type: 3}
   respawnPoint: {fileID: 0}
   respawnTime: 0.5
   deathHeight: 47.5
   explosionLayers:
     serializedVersion: 2
     m_Bits: 4096
+  flatLine: {fileID: 0}
+  electricSound: {fileID: 0}
+  explosion: {fileID: 0}
+  fallSound: {fileID: 0}
 --- !u!114 &3422799189945138023
 MonoBehaviour:
   m_ObjectHideFlags: 0
