@@ -6,9 +6,12 @@ public class OpenDoor : MonoBehaviour
 {
     public GameObject[] Buttons;
     private bool[] allPressed;
+    public AudioClip doorSound;
+    private AudioSource audio;
     // Start is called before the first frame  
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         allPressed = new bool[Buttons.Length];
        
     }
@@ -28,6 +31,7 @@ public class OpenDoor : MonoBehaviour
         }
         if(check == true)
         {
+            audio.PlayOneShot(doorSound);
             gameObject.SetActive(false);
         }
     }
