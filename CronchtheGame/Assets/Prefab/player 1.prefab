@@ -189,12 +189,12 @@ MonoBehaviour:
   explosionLayers:
     serializedVersion: 2
     m_Bits: 4096
-  flatLine: {fileID: 0}
-  electricSound: {fileID: 0}
-  explosion: {fileID: 0}
-  crunch: {fileID: 0}
-  fallSound: {fileID: 0}
-  failSound: {fileID: 0}
+  flatLine: {fileID: 8300000, guid: 9292427071c3ed042b33df7f9a76ec52, type: 3}
+  electricSound: {fileID: 8300000, guid: 3079cf7237d033c498738669a8b7910f, type: 3}
+  explosion: {fileID: 8300000, guid: 966de57be507858418a7c4e02ee0aa87, type: 3}
+  crunch: {fileID: 8300000, guid: e865ffa7af0bace408f3ff12926af8e1, type: 3}
+  fallSound: {fileID: 8300000, guid: 1a7b3e2d98848a94ba7c816863edefdc, type: 3}
+  failSound: {fileID: 8300000, guid: 712c3fa1276955c4d9beba3a95092735, type: 3}
 --- !u!114 &3422799189945138023
 MonoBehaviour:
   m_ObjectHideFlags: 0
