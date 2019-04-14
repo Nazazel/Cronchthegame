@@ -12,4 +12,12 @@ public class Button : MonoBehaviour
             triggered = true; 
         }
     }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player" || other.tag == "DeadBody")
+        {
+            triggered = false;
+        }
+    }
 }

@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
             else if(Input.GetButtonDown("explode"))
             {
                 transform.position = new Vector2(transform.position.x,transform.position.y+1);
-                explode(new Vector2(rb2d.velocity.x,10f),new Vector2(rb2d.velocity.x,0));
+                explode(new Vector2(rb2d.velocity.x, 0),new Vector2(rb2d.velocity.x,10f));
             }
             else if(Input.GetButtonDown("HeartAttack"))
             {
@@ -171,14 +171,14 @@ public class PlayerMovement : MonoBehaviour
             wall.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
         }
-   
+        DeadPlayer legsHalf = Instantiate(legs, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+        legsHalf.fallGravity = controller.fallGravity;
+        legsHalf.setVelocity(bottom);
+
         DeadPlayer torsoHalf = Instantiate(torso, transform.position, transform.rotation).GetComponent<DeadPlayer>();
         torsoHalf.fallGravity = controller.fallGravity;
         torsoHalf.setVelocity(top);
         
-        DeadPlayer legsHalf = Instantiate(legs, transform.position, transform.rotation).GetComponent<DeadPlayer>();
-        legsHalf.fallGravity = controller.fallGravity;
-        legsHalf.setVelocity(bottom);
         transform.position = respawnPoint.transform.position;
         rb2d.velocity = Vector3.zero;
         StartCoroutine("respawn");
