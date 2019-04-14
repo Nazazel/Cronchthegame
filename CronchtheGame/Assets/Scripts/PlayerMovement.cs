@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     public CharacterController2D controller;
     public  GameObject DeadPlayer;
+    public GameObject ElectricBody;
     public  Transform respawnPoint; 
     public float respawnTime;
     public float deathHeight;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private bool respawning;
     private Vector2 preJumpVelocity;
     private float jumpDistance;
+    private bool electric;
     void Awake()
     {
         controller = GetComponent<CharacterController2D>();
@@ -60,7 +62,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else if(Input.GetButtonDown("HeartAttack"))
             {
-                death();
+                if(electric == true)
+                {
+                    electricDeath();
+                }
+                else
+                    death();
             }
             else if(controller.IsGrounded()==true && Mathf.Abs(jumpDistance-transform.position.y)>deathHeight)
             {
@@ -86,14 +93,30 @@ public class PlayerMovement : MonoBehaviour
     }
     
 
+#region  triggers
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag=="Death")
         {
             death();
         }
+        if(other.tag == "electric")
+        {
+            electric = true;
+        }
     }
 
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "electric")
+        {
+            electric = false;
+        }
+    }
+#endregion 
+
+#region  deaths
     private void death()
     {
         DeadPlayer dead = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
@@ -107,12 +130,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    IEnumerator respawn()
-    {
-        respawning=true;
-        yield return new WaitForSeconds(respawnTime);
-        respawning=false;
-    }
     private void explode(Vector2 top, Vector2 bottom)
     {
         var hit = Physics2D.CircleCastAll(transform.position, 5, Vector2.zero, 0, explosionLayers);
@@ -134,9 +151,20 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine("respawn");
     }
 
-    private void explode()
+    private void electricDeath()
     {
-
-
+        Instantiate(ElectricBody, transform.position, transform.rotation);
+        transform.position = respawnPoint.transform.position;
+        rb2d.velocity = Vector3.zero;
+        StartCoroutine("respawn");
     }
+    #endregion
+
+    IEnumerator respawn()
+    {
+        respawning = true;
+        yield return new WaitForSeconds(respawnTime);
+        respawning = false;
+    }
+
 }
