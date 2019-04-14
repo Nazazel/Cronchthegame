@@ -47,8 +47,12 @@ public class PlayerMovement : MonoBehaviour
         if(respawning!=true){
             if(controller.jumpsRemaining == 0)
             {
-                death();
+                explode(rb2d.velocity,preJumpVelocity);
 
+            }
+            else if(Input.GetButtonDown("explode"))
+            {
+                explode(new Vector2(rb2d.velocity.x,10f),new Vector2(rb2d.velocity.x,0));
             }
             else if(Input.GetButtonDown("HeartAttack"))
             {
@@ -57,15 +61,12 @@ public class PlayerMovement : MonoBehaviour
             else if(controller.IsGrounded()==true && Mathf.Abs(jumpDistance-transform.position.y)>deathHeight)
             {
                 death();
-
-
             }
-            
         }
-       if (controller.IsGrounded())
-            {
+        
+        if (controller.IsGrounded()){
                 jumpDistance = transform.position.y;
-            }
+        }
     }
 
     // FixedUpdate is called multiple times per x amount of frames
@@ -86,13 +87,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void death()
     {
-        DeadPlayer torso = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
-        torso.fallGravity=controller.fallGravity;
-        torso.setVelocity(rb2d.velocity);
+        DeadPlayer dead = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+        dead.fallGravity=controller.fallGravity;
+        dead.setVelocity(rb2d.velocity);
 
-        DeadPlayer legs = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
-        legs.fallGravity = controller.fallGravity;
-        legs.setVelocity(preJumpVelocity);
+
         transform.position =respawnPoint.transform.position;
         rb2d.velocity = Vector3.zero;
         StartCoroutine("respawn");
@@ -105,9 +104,24 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(respawnTime);
         respawning=false;
     }
+    private void explode(Vector2 top, Vector2 bottom)
+    {
+
+        DeadPlayer torso = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+        torso.fallGravity = controller.fallGravity;
+        torso.setVelocity(top);
+
+        DeadPlayer legs = Instantiate(DeadPlayer, transform.position, transform.rotation).GetComponent<DeadPlayer>();
+        legs.fallGravity = controller.fallGravity;
+        legs.setVelocity(bottom);
+        transform.position = respawnPoint.transform.position;
+        rb2d.velocity = Vector3.zero;
+        StartCoroutine("respawn");
+    }
+
     private void explode()
     {
-        
-        death();
+
+
     }
 }

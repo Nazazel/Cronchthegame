@@ -88,7 +88,7 @@ public class CharacterController2D : MonoBehaviour {
         {
             m_Grounded = false;
             m_RigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
-            m_AirJumpsLeft--;
+            m_AirJumpsLeft--;       
         }
     }
 
