@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip flatLine;
     public AudioClip electricSound;
     public AudioClip explosion;
+    public AudioClip crunch;
     public AudioClip fallSound;
     public AudioClip failSound;
 
@@ -130,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.tag=="Death")
         {
+            audio.PlayOneShot(crunch);
             death();
         }
         if(other.tag == "electric")
