@@ -46,9 +46,10 @@ GameObject:
   - component: {fileID: 3422799189945138023}
   - component: {fileID: 8540477142460642372}
   - component: {fileID: 4734603187978135022}
+  - component: {fileID: 9024712605244230106}
   m_Layer: 0
   m_Name: player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -207,9 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825c21ccd5eb5124c81fd07a3bfd04b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 800
+  m_JumpForce: 400
   m_AirJumps: 1
-  m_FallGravity: 9.81
+  m_FallGravity: 3
   m_MovementSmoothing: 0.05
   m_GroundLayer:
     serializedVersion: 2
@@ -336,3 +337,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &9024712605244230106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3422799189945138016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499d16f3eda862341b28f76ec7a35576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  anim: {fileID: 0}
