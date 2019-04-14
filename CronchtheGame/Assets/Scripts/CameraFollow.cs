@@ -15,6 +15,8 @@ public class CameraFollow : MonoBehaviour
     }
     void LateUpdate()
     {
+        //float z =transform.position.z;
+        //transform.position =new Vector3(Mathf.SmoothStep(transform.position.x, player.transform.position.x, .15f);,0,z);      
         transform.position = player.transform.position + offset;
     }
 }
