@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
+               jump = true;
             jumpDistance=transform.position.y;
             preJumpVelocity = rb2d.velocity;
         }
