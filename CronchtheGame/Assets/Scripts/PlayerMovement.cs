@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -62,7 +64,12 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
-       if (controller.IsGrounded())
+        if (Input.GetButtonDown("restart"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+
+        }
+        if (controller.IsGrounded())
             {
                 jumpDistance = transform.position.y;
             }
