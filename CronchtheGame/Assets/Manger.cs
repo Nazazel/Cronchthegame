@@ -23,5 +23,13 @@ public class Manger : MonoBehaviour
     {
         MainMenu.SetActive(false);
         Credits.SetActive(true);
+        StartCoroutine("creditCooldown");
+    }
+
+    public IEnumerator creditCooldown()
+    {
+        yield return new WaitForSeconds(5.0f);
+        MainMenu.SetActive(true);
+        Credits.SetActive(false);
     }
 }
