@@ -949,7 +949,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e941cd1ff4206b44aa44b345570a1a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons: []
+  Buttons:
+  - {fileID: 1914409148}
   doorSound: {fileID: 8300000, guid: 13725b5f0f9f6894b96a2b10c33f5bdd, type: 3}
 --- !u!1 &309788940
 GameObject:
