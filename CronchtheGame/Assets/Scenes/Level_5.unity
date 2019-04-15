@@ -2656,6 +2656,26 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 16.04
       objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 16.04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e708f70c21d33b4a8de8da13c7617fd, type: 3}
 --- !u!1 &1560944754

@@ -12,7 +12,6 @@ public class OpenDoor : MonoBehaviour
     void Awake()
     {
         audio = GetComponent<AudioSource>();
-        allPressed = new bool[Buttons.Length];
        
     }
 
@@ -23,9 +22,12 @@ public class OpenDoor : MonoBehaviour
 
         for (int i = 0; i < Buttons.Length; i++)
         {
+            Debug.Log(Buttons[i].GetComponent<Button>().triggered);
+
             if(!Buttons[i].GetComponent<Button>().triggered)
             {
                 check = false;
+
                 break;
             }
         }

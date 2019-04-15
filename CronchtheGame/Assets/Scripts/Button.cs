@@ -12,22 +12,26 @@ public class Button : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
     }
-        void OnTriggerEnter2D(Collider2D other)
+    
+    void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player"|| other.tag == "DeadBody")
         {
             audio.PlayOneShot(buttonSound);
-            triggered = true; 
+            triggered = true;
+            Debug.Log("SALFHL");
+
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(gameObject.tag != "electric");
-        if (other.tag == "Player" || other.tag == "DeadBody")
-        {
-            audio.PlayOneShot(buttonSound);
-            triggered = false;
+        if(gameObject.tag != "electric"){
+            if (other.tag == "Player" || other.tag == "DeadBody")
+            {
+                audio.PlayOneShot(buttonSound);
+                triggered = false;
+            }
         }
     }
 }

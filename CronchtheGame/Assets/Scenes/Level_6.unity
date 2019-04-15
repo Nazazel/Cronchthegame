@@ -743,7 +743,7 @@ PrefabInstance:
     - target: {fileID: 5284173192508935044, guid: 2e708f70c21d33b4a8de8da13c7617fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.314799
+      value: -9.45
       objectReference: {fileID: 0}
     - target: {fileID: 5284173192508935044, guid: 2e708f70c21d33b4a8de8da13c7617fd,
         type: 3}
@@ -809,6 +809,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 15.629359
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284173192508935045, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284173192508935046, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 15.629359
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284173192508935046, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284173192508935046, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 15.629359
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806666274849875513, guid: 2e708f70c21d33b4a8de8da13c7617fd,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e708f70c21d33b4a8de8da13c7617fd, type: 3}
@@ -2496,6 +2536,7 @@ GameObject:
   - component: {fileID: 1159654382}
   - component: {fileID: 1159654381}
   - component: {fileID: 1159654380}
+  - component: {fileID: 1159654384}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -2677,6 +2718,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1159654384
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159654379}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 2.7}
+    newSize: {x: 0.32, y: 2.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.32, y: 2.7}
+  m_EdgeRadius: 0
 --- !u!1 &1171524486
 GameObject:
   m_ObjectHideFlags: 0
