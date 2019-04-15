@@ -23,6 +23,7 @@ public class Button : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        if(gameObject.tag != "electric");
         if (other.tag == "Player" || other.tag == "DeadBody")
         {
             audio.PlayOneShot(buttonSound);

@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private bool electric;
     private AudioSource audio;
     private float duration;
+    private GameObject electricPanel;
     void Awake()
     {
         controller = GetComponent<CharacterController2D>();
@@ -88,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 if (electric == true)
                 {
                     audio.PlayOneShot(electricSound);
+                    electricPanel.GetComponent<Button>().triggered=true;
                     electricDeath();
                 }
                 else
@@ -137,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
         if(other.tag == "electric")
         {
             electric = true;
+            electricPanel = other.gameObject;
         }
     }
 
@@ -146,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.tag == "electric")
         {
             electric = false;
+            other = null;
         }
     }
 #endregion 
