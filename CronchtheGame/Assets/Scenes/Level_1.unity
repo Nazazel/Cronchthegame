@@ -1769,6 +1769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   anim: {fileID: 0}
+  win: 0
 --- !u!1001 &8540477142519496215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1893,7 +1894,7 @@ PrefabInstance:
     - target: {fileID: 8704904039757480184, guid: 8e1fb07d4246e2e45986c0fd4f89412c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.217
+      value: -4.72
       objectReference: {fileID: 0}
     - target: {fileID: 8704904039757480184, guid: 8e1fb07d4246e2e45986c0fd4f89412c,
         type: 3}
