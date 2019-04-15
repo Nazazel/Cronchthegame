@@ -3476,6 +3476,11 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 107220641}
+    - target: {fileID: 3422799189945138022, guid: 23c41916c97f824448068f8cb85bc2cc,
+        type: 3}
+      propertyPath: deathHeight
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c41916c97f824448068f8cb85bc2cc, type: 3}
 --- !u!1 &2027764379
